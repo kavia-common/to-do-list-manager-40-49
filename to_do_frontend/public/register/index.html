@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Create your account" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="screen" role="main">
+    <!-- Background image from Figma asset -->
+    <img
+      class="screen__bg"
+      src="../../assets/figmaimages/figma_image_451_861.png"
+      alt=""
+      aria-hidden="true"
+    />
+
+    <section class="card" aria-labelledby="register-title">
+      <!-- Decorative side image (R 2) -->
+      <div class="card__media">
+        <img
+          src="../../assets/figmaimages/figma_image_449_1486.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="card__content">
+        <h1 id="register-title" class="title">Sign Up</h1>
+
+        <form id="registerForm" class="form" novalidate>
+          <!-- First Name -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/icon-park-solid-edit-name.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="firstName">First Name</label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              placeholder="Enter First Name"
+              autocomplete="given-name"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Last Name -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/icon-park-outline-edit-name.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="lastName">Last Name</label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              placeholder="Enter Last Name"
+              autocomplete="family-name"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Username -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/mdi-user.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Enter Username"
+              autocomplete="username"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/ic-baseline-email.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter Email"
+              autocomplete="email"
+              required
+              aria-required="true"
+              inputmode="email"
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/mdi-password.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input input--icon">
+            <span class="input__icon" aria-hidden="true">
+              <img src="../../assets/svgs/mdi-password-outline.svg" alt="" />
+            </span>
+            <!-- PUBLIC_INTERFACE -->
+            <label class="sr-only" for="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form__row form__terms">
+            <label class="checkbox">
+              <input id="terms" name="terms" type="checkbox" required aria-required="true" />
+              <span class="checkbox__box" aria-hidden="true"></span>
+              <span>I agree to all terms</span>
+            </label>
+          </div>
+
+          <div class="form__row">
+            <!-- PUBLIC_INTERFACE -->
+            <button id="registerBtn" type="submit" class="btn">
+              Register
+            </button>
+          </div>
+
+          <p class="note">
+            Already have an account?
+            <a href="#" class="note__link">Sign In</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

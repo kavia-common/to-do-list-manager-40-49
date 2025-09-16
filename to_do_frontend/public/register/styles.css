@@ -1,0 +1,273 @@
+:root {
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --field-bg: #ffffff;
+  --field-border: rgba(0, 0, 0, 0.12);
+  --field-text: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #0d6efd; /* approximates the blue register button style */
+  --accent-contrast: #ffffff;
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--field-text);
+  background: #fff;
+}
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.screen__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none; /* Figma shows full image */
+  z-index: -1;
+}
+
+/* Card approximates the big white rounded rectangle with inner content */
+.card {
+  width: min(1236px, 92vw);
+  min-height: 60vh;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 433px 1fr;
+  gap: 28px;
+  padding: 24px;
+}
+
+.card__media {
+  display: none; /* hidden by default for small screens */
+  align-self: stretch;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 560px; /* approx 559px */
+}
+
+.input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  border-radius: 10px;
+  height: 60px; /* match figma input height */
+  padding: 0 14px 0 14px;
+}
+
+.input--icon {
+  padding-left: 46px; /* space for icon */
+}
+
+.input__icon {
+  position: absolute;
+  left: 12px;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.input__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.input input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--field-text);
+  font-size: 16px; /* approximates Figma 20px visually due to different default fonts */
+}
+
+.input input::placeholder {
+  color: var(--muted);
+}
+
+/* Terms checkbox row */
+.form__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.form__terms {
+  margin-top: 4px;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--field-text);
+  font-size: 14px;
+}
+
+.checkbox input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox__box {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--field-border);
+  border-radius: 4px;
+  background: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.checkbox input:checked + .checkbox__box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox input:checked + .checkbox__box::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Primary button approximating 129x60 in Figma */
+.btn {
+  min-width: 129px;
+  height: 60px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 20px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.05s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 8px 22px rgba(13, 110, 253, 0.35);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Bottom note */
+.note {
+  margin: 8px 0 0 0;
+  color: var(--field-text);
+  font-size: 14px;
+}
+
+.note__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.note__link:hover {
+  text-decoration: underline;
+}
+
+/* Screen reader only helper */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Layout for large screens (show the side image) */
+@media (min-width: 1024px) {
+  .card {
+    grid-template-columns: 433px 1fr; /* match Figma left image width */
+    padding: 32px;
+    gap: 32px;
+  }
+  .card__media {
+    display: block;
+  }
+}
+
+/* Smaller screens stack the form full width */
+@media (max-width: 1023px) {
+  .card {
+    grid-template-columns: 1fr;
+    width: min(680px, 94vw);
+  }
+}
